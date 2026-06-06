@@ -1,0 +1,9 @@
+// Style entry. Fonts + base first, then blocks.
+@use 'fonts';
+@use 'base';
+@use 'blocks/header';
+@use 'blocks/hero';
+@use 'blocks/breadcrumbs';
+@use 'blocks/products';
+@use 'blocks/slider';
+@use 'blocks/footer';

@@ -1,0 +1,41 @@
+// Design tokens — the only place to edit values from Figma.
+
+// Breakpoints (mobile-first)
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'laptop': 1024px,
+  'desktop': 1240px,
+);
+
+// Layout
+$container-max: 1320px;
+$container-padding: 20px;
+
+// Brand (theme-independent)
+$color-red: #e30613;
+$color-red-hover: #c50511;
+
+// Typography. Figma uses Sofia Pro (commercial); Sofia Sans is a free fallback.
+$font-body:
+  'Sofia Pro',
+  'Sofia Sans',
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-display: $font-body;
+
+// Radii
+$radius-card: 20px;
+$radius-header: 16px;
+$radius-btn: 8px;
+$radius-pill: 6px;
+
+// Motion
+$transition-base: 0.25s ease;
+$transition-slow: 0.4s ease;
+
+// Layers
+$z-header: 100;
+$z-overlay: 150;
+$z-menu: 200;

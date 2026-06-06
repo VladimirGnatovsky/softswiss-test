@@ -1,0 +1,323 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Top-level header, absolutely overlaid on the first section.
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: $z-header;
+  padding-block:10px;
+
+  &__container {
+    @include container;
+  }
+
+  // The floating pill
+  &__bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--header-bar);
+    border-radius: $radius-header;
+    box-shadow: var(--shadow-soft);
+    transition: background-color $transition-base;
+  }
+
+  // Logo 
+  &__logo {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    min-width: 194px;
+  }
+
+  &__logo-img {
+    width: auto;
+    height: 30px;
+  }
+
+  &__logo-img--dark {
+    display: none;
+  }
+
+  &__nav {
+    margin-inline: auto; // center menu on desktop
+  }
+
+  &__menu {
+    display: flex;
+    gap: 28px;
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 145%;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: color $transition-base;
+
+    &:hover {
+      color: var(--color-red);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    align-items: center;
+  }
+
+  // Theme toggle 
+  &__theme-toggle {
+    @include button-reset;
+    background: var(--color-toggle-icon);
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    transition: background-color $transition-base;
+
+    &:hover {
+      background-color: var(--color-card);
+    }
+  }
+
+  &__toggle-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text);
+  }
+
+  // Contact us (desktop)
+  &__contact {
+    @include button-reset;
+
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding-inline: 24px;
+    font-size: 14px;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-red);
+    border-radius: $radius-btn;
+    transition:
+      background-color $transition-base,
+      transform $transition-base;
+
+    &:hover {
+      background-color: var(--color-red-hover);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  // Mail button (tablet/mobile)
+  &__mail {
+    @include button-reset;
+
+    display: none;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    background-color: var(--color-red);
+    border-radius: $radius-btn;
+
+    &:hover {
+      background-color: var(--color-red-hover);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  // Burger
+  &__burger {
+    @include button-reset;
+
+    z-index: $z-menu + 1;
+    display: none;
+    gap: 10px;
+    align-items: center;
+    height: 48px;
+    width: 94px;
+    border-radius: 8px;
+    background: var(--color-toggle-icon);
+    justify-content: center;
+  }
+
+  &__burger-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  &__burger-lines {
+    position: relative;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+
+    span,
+    span::before,
+    span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      background-color: var(--color-text);
+      border-radius: 2px;
+      transition:
+        transform $transition-base,
+        opacity $transition-base;
+    }
+
+    span {
+      top: 7px;
+    }
+
+    span::before {
+      transform: translateY(-6px);
+    }
+
+    span::after {
+      transform: translateY(6px);
+    }
+  }
+
+  // Open state: burger morphs into a cross
+  &--menu-open &__burger-lines span {
+    background-color: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  // Tablet and below: nav becomes an off-canvas panel
+  @include respond-below('laptop') {
+
+    &__burger {
+      display: flex;
+    }
+
+    &__logo {
+      min-width: auto;
+    }
+
+    &__mail {
+      display: grid;
+    }
+
+    &__contact {
+      display: none;
+    }
+
+    &__nav {
+      position: fixed;
+      inset: 0 0 0 auto;
+      z-index: $z-menu;
+      width: min(82vw, 360px);
+      margin-inline: 0;
+      padding: 96px 28px 28px;
+      background-color: var(--color-bg);
+      border-left: 1px solid var(--color-border);
+      transform: translateX(100%);
+      transition: transform $transition-slow;
+      will-change: transform;
+    }
+
+    &__menu {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &__link {
+      display: block;
+      padding: 12px 0;
+      font-size: 18px;
+    }
+
+    &--menu-open &__nav {
+      transform: translateX(0);
+    }
+  }
+
+  // Mobile: hide the burger label
+  @include respond-below('tablet') {
+    position: fixed;
+    padding: 0px;
+
+    &__container {
+      padding-inline: 0px;
+    }
+
+    &__burger-label {
+      display: none;
+    }
+
+    &__theme-toggle {
+      display:none;
+    }
+
+    &__logo {
+        margin-right: auto;
+    }
+
+    &__bar {
+        gap: 10px;
+        border-radius: 0px;
+        align-items: center;
+    }
+
+    &__burger{
+      order: 1;
+      width: 48px;
+    }
+  }
+}
+
+// Dim layer behind the open menu.
+.header__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-overlay;
+  visibility: hidden;
+  background-color: rgb(0 0 0 / 50%);
+  opacity: 0;
+  transition:
+    opacity $transition-base,
+    visibility $transition-base;
+
+  .header--menu-open & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// Swap logo variant per theme.
+[data-theme='dark'] {
+  .header__logo-img--light {
+    display: none;
+  }
+
+  .header__logo-img--dark {
+    display: block;
+  }
+}

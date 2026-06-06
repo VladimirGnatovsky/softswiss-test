@@ -1,0 +1,86 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// First section. Always red. Header overlays its top.
+.hero {
+  position: relative;
+  padding-block: 204px 104px; // top clears the absolute header
+  overflow: hidden;
+  background-color: var(--color-red);
+
+  @include respond-below('tablet') {
+    padding-block: 155px 80px;
+  }
+
+  &__inner {
+    @include container;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    max-width: 530px;
+    margin-inline: auto;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+
+    @include respond-below('tablet') {
+      font-size: 32px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    color: rgb(255 255 255 / 80%);
+    font-weight: 300;
+  }
+
+  // Full decor renders (with parallax via --shift)
+  &__decor {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: clamp(280px, 28vw, 360px);
+    height: auto;
+    pointer-events: none;
+    transform: translateY(calc(-19% + var(--shift, 0px)));
+    will-change: transform;
+
+    &--left {
+      left: max(0px, calc(50% - 680px));
+    }
+
+    &--right {
+      right: max(0px, calc(50% - 680px));
+    }
+
+    @include respond-below('laptop') {
+      transform: translateY(calc(17% + var(--shift, 0px)));
+      bottom: 0px;
+      top: auto;
+
+      &--left {
+        left: -37px;
+      }
+      &--right {
+        right: -37px;
+      }
+    }
+    @include respond-below('tablet') {
+      display:none;
+    }
+  }
+  @include respond-below('laptop') {
+     padding-bottom: 244px;
+  }
+  @include respond-below('tablet') {
+      padding-bottom: 74px;
+  }
+}

@@ -1,0 +1,54 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Red tab hanging from the bottom-center of the hero into the next section.
+.breadcrumbs {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    position: relative;
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    padding: 24px; 
+    background-color: var(--color-red);
+    border-radius: 0 0 20px 20px;
+  }
+
+  // Concave fillets that flare the tab into the straight hero edge.
+  &__inner::before,
+  &__inner::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    width: 14px;
+    height: 14px;
+  }
+
+  &__inner::before {
+    left: -13px;
+   background: radial-gradient(circle at 0 100%, transparent 12px, rgba(255, 0, 0, .5) 13px, var(--color-red) 14px);
+  }
+
+  &__inner::after {
+    right: -13px;
+    background: radial-gradient(circle at 100% 100%, transparent 12px, rgba(255, 0, 0, .5) 13px, var(--color-red) 14px);
+  }
+
+  &__item {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.45;
+  }
+
+  // Small round badge with a back chevron.
+  &__badge {
+    margin-top:-3px;
+  }
+}
