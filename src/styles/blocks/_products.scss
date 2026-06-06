@@ -79,6 +79,7 @@
       }
     }
   }
+
   @include respond-below('laptop') {
     padding-block: 20px 104px;
   }
@@ -141,6 +142,7 @@
   &__title {
     font-size: 24px;
     font-weight: 600;
+
     @include respond-below('tablet') {
       font-size: 20px;
     }

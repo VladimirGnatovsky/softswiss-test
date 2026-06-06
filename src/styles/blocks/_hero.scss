@@ -63,23 +63,27 @@
 
     @include respond-below('laptop') {
       transform: translateY(calc(17% + var(--shift, 0px)));
-      bottom: 0px;
+      bottom: 0;
       top: auto;
 
       &--left {
         left: -37px;
       }
+
       &--right {
         right: -37px;
       }
     }
+
     @include respond-below('tablet') {
       display:none;
     }
   }
+
   @include respond-below('laptop') {
      padding-bottom: 244px;
   }
+
   @include respond-below('tablet') {
       padding-bottom: 74px;
   }

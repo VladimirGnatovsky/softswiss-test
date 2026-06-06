@@ -19,6 +19,7 @@
     max-width: 595px;
     margin: 0 auto 40px;
     text-align: center;
+
     @include respond-below('tablet') {
       margin: 0 auto 30px;
     }
@@ -61,10 +62,11 @@
     gap: 20px;
     align-items: center;
     margin-bottom: 24px;
+
     @include respond-below('laptop') {
       padding: 10px 40px;
       position: relative;
-      gap: 0px;
+      gap: 0;
     }
   }
 
@@ -74,6 +76,7 @@
     font-weight: 600;
     margin-left: 20px;
     color: var(--color-red);
+
     @include respond-below('laptop') {
         margin-right: 20px;
         margin-left: 28px;
@@ -88,6 +91,7 @@
     overflow: hidden;
     background: var(--color-slider-progress);
     border-radius: 999px;
+
     @include respond-below('tablet') {
       height: 2px;
     }
@@ -108,6 +112,7 @@
     font-weight: 600;
     margin-right: 20px;
     color: var(--color-red);
+
     @include respond-below('laptop') {
         margin-left: 20px;
         margin-right: 28px;
@@ -146,16 +151,18 @@
       width: 20px;
       height: 20px;
     }
+
     @include respond-below('laptop') {
       &:first-child {
         position: absolute;
         left: 5px;
-        top: 0px;
+        top: 0;
       }
+
       &:last-child {
           right: 5px;
           position: absolute;
-          top: 0px;
+          top: 0;
       }
     }
   }

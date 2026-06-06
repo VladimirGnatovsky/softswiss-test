@@ -212,7 +212,6 @@
 
   // Tablet and below: nav becomes an off-canvas panel
   @include respond-below('laptop') {
-
     &__burger {
       display: flex;
     }
@@ -262,10 +261,10 @@
   // Mobile: hide the burger label
   @include respond-below('tablet') {
     position: fixed;
-    padding: 0px;
+    padding: 0;
 
     &__container {
-      padding-inline: 0px;
+      padding-inline: 0;
     }
 
     &__burger-label {
@@ -282,7 +281,7 @@
 
     &__bar {
         gap: 10px;
-        border-radius: 0px;
+        border-radius: 0;
         align-items: center;
     }
 

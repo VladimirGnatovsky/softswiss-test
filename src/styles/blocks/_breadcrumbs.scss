@@ -29,12 +29,12 @@
 
   &__inner::before {
     left: -13px;
-   background: radial-gradient(circle at 0 100%, transparent 12px, rgba(255, 0, 0, .5) 13px, var(--color-red) 14px);
+   background: radial-gradient(circle at 0 100%, transparent 12px, rgb(255 0 0 / 50%) 13px, var(--color-red) 14px);
   }
 
   &__inner::after {
     right: -13px;
-    background: radial-gradient(circle at 100% 100%, transparent 12px, rgba(255, 0, 0, .5) 13px, var(--color-red) 14px);
+    background: radial-gradient(circle at 100% 100%, transparent 12px, rgb(255 0 0 / 50%) 13px, var(--color-red) 14px);
   }
 
   &__item {
