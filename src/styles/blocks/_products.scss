@@ -16,6 +16,8 @@
     gap: 10px;
     grid-template-columns: 1fr; // mobile
 
+      
+
     @include respond-to('tablet') {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(168px, auto);
@@ -27,14 +29,14 @@
         'u4  u5'   
         'ub  ub';  
 
-      .card--tg { grid-area: tg; }
-      .card--uw { grid-area: uw; }
-      .card--u2 { grid-area: u2; }
-      .card--u3 { grid-area: u3; }
-      .card--sl { grid-area: sl; }
-      .card--u4 { grid-area: u4; }
-      .card--u5 { grid-area: u5; }
-      .card--ub { grid-area: ub; }
+        .card--tg { grid-area: tg; }
+        .card--uw { grid-area: uw; }
+        .card--u2 { grid-area: u2; }
+        .card--u3 { grid-area: u3; }
+        .card--sl { grid-area: sl; }
+        .card--u4 { grid-area: u4; }
+        .card--u5 { grid-area: u5; }
+        .card--ub { grid-area: ub; }
     }
 
     @include respond-to('laptop') {
@@ -45,38 +47,6 @@
         'tg u2 u3'
         'sl u4 ub'
         'sl u5 ub';
-
-      .card--tg {
-        grid-area: tg;
-      }
-
-      .card--uw {
-        grid-area: uw;
-      }
-
-      .card--u2 {
-        grid-area: u2;
-      }
-
-      .card--u3 {
-        grid-area: u3;
-      }
-
-      .card--sl {
-        grid-area: sl;
-      }
-
-      .card--u4 {
-        grid-area: u4;
-      }
-
-      .card--u5 {
-        grid-area: u5;
-      }
-
-      .card--ub {
-        grid-area: ub;
-      }
     }
   }
 

@@ -10,7 +10,7 @@ export function initSlider() {
   const swiper = new Swiper(el, {
     modules: [Navigation],
     slidesPerView: 1,
-    spaceBetween: 16,
+    spaceBetween: 20,
     loop: true,
     navigation: {
       prevEl: '[data-slider-prev]',
